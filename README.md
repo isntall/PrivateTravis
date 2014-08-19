@@ -60,6 +60,23 @@ command to get setup:
 cd compiler && composer install --prefer-dist
 ```
 
+### Vagrant
+
+Vagrant is very handy. If you do not run Docker natively the following VM will
+provide a method for debugging and building and executing of containers locally.
+
+Install Vagrant (1.6.x):
+
+```
+http://www.vagrantup.com/downloads.html
+```
+
+Spin up a VM with Docker with the following command:
+
+```
+vagrant up
+```
+
 ### Things still to be done.
 
 Please see the issue page for a list of tasks we still need to do.
