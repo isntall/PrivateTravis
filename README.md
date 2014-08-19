@@ -22,7 +22,7 @@ Provides PHP 5.4 for Travis runs. Yep, that's about it.
 
 #### PHP 5.5
 
-Provides PHP 5.4 for Travis runs. Yep, that's about it.
+Provides PHP 5.5 for Travis runs. Yep, that's about it.
 
 #### Installation
 
@@ -43,12 +43,12 @@ make build
 ### The compiler
 
 While our containers do run the TravisCI configuration file. They only run the
-build instructions. It's up to us to:
+build "script" instructions. It's up to us to:
 
-* All the permutations.
+* Build all the permutations eg. PHP 5.5 + Mysql and PHP 5.4 and Postgres
 * Links containers.
 
-With this in mind I created a little symphony console application that will take
+With this in mind I created a little symfony console application that will take
 the TravisCI configuration file and return a script that we can use to test.
 
 #### Installation
