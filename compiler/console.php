@@ -17,9 +17,9 @@ $console
   ->setCode(function (InputInterface $input, OutputInterface $output) {
     // Get the travis configuration.
     $namespace = 'drupal';
-    $travis = Yaml::parse('.travis.yaml');
+    $travis = Yaml::parse('.travis.yml');
     $language = !empty($travis['language']) ? $travis['language'] : '';
-    $language_versions = !empty($travis[$language]) ? $travis[$language] : '';
+    $language_versions = !empty($travis[$language]) ? $travis[$language] : array();
     $services = !empty($travis['services']) ? $travis['services'] : array();
 
     $output->writeln('#!/bin/bash');
@@ -47,7 +47,7 @@ $console
       }
 
       // End with the main container.
-      $main = $namespace . '/' . $language;
+      $main = $namespace . '/' . $language . $language_version;
       $output->writeln('docker run --rm -v $(pwd):/data ' . $links . ' ' . $main . ' before_script script');
       $output->writeln("\n");
     }
