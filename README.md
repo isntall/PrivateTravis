@@ -59,3 +59,7 @@ command to get setup:
 ```
 cd compiler && composer install --prefer-dist
 ```
+
+### Things still to be done.
+
+Please see the issue page for a list of tasks we still need to do.
