@@ -13,14 +13,14 @@ $console = new Application();
 
 $console
   ->register('build')
-  ->setDescription('Build the Docker command to run the .travis.yaml file.')
+  ->setDescription('Build the Docker command to run the .travis.yml file.')
   ->setCode(function (InputInterface $input, OutputInterface $output) {
     // Get the travis configuration.
     $namespace = 'drupal';
     $travis = Yaml::parse('.travis.yaml');
-    $language = $travis['language'];
-    $language_versions = $travis[$language];
-    $services = $travis['services'];
+    $language = !empty($travis['language']) ? $travis['language'] : '';
+    $language_versions = !empty($travis[$language]) ? $travis[$language] : '';
+    $services = !empty($travis['services']) ? $travis['services'] : array();
 
     $output->writeln('#!/bin/bash');
     $output->writeln("\n");
