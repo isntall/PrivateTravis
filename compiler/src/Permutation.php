@@ -19,17 +19,28 @@ class Permutation {
    */
   private $services = array();
 
-  public addStep($command) {
-    $this->steps[] = $command;
-  }
-
   /**
    * Adds a container service to the permutation.
    */
   public addService($service) {
-    $up_service = strtoupper($service);
-    $this->addStep($up_service . '_ID=$(docker run --rm -v -d ' . $namespace . '/' . $service . ')');
-    $this->addStep($up_service . '=$(docker inspect --format "{{ .Name }}" $' . $up_service . '_ID | cut -d "/" -f 2)');
+    // Convert the service name to uppercase for bash variables.
+    $uppercase_service = strtoupper($service);
+
+    // Build the service command.
+    $run = new DockerRunCommand();
+    $run->setDaemon(true);
+    $run->setRemove(true);
+    $run->setContainer($this->namespace . '/' . $service);
+    $command = $run->build();
+    $this->addStep($uppercase_service . '_ID=$(' . $command . ')');
+
+    // Build the inspect command.
+    $run = new DockerInspectCommand();
+    $run->setFormat('{{ .Name }}');
+    $run->setContainer('$' . $up_service . '_ID');
+    $run->setCommand('| cut -d "/" -f 2');
+    $command = $run->build();
+    $this->addStep($uppercase_service . '=$(' . $command . ')');
   }
 
   /**
@@ -40,28 +51,24 @@ class Permutation {
   }
 
   /**
-   * Helper function to build a Docker step.
+   * Get steps.
    */
-  private buildDocker($type = "run", $container, $daemon = false, $cmd = '', $links = array()) {
-    $command = 'docker ' . $type . ' --rm -v ';
+  public function setSteps($steps) {
+    $this->steps = $steps;
+  }
 
-    if ($daemon) {
-      $command .= '-d ';
-    }
+  /**
+   * Set steps.
+   */
+  public function getSteps() {
+    return $this->steps;
+  }
 
-    foreach ($links) {
-      $command .= '--link ' . $links['container'] . ':' . $links['name'] . ' ';
-    }
-
-    if ($container) {
-      $command .= $container;
-    }
-
-    if ($cmd) {
-      $command .= ' ' . $cmd;
-    }
-
-    return $command;
+  /**
+   * Add a steo.
+   */
+  public function addStep($command) {
+    $this->steps[] = $command;
   }
 
 }
