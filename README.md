@@ -5,6 +5,8 @@ Docker Drupal
 
 Base containers that are used for a Drupal Travis CI knockoff.
 
+![Diagram](./docs/diagram.jpg "docs/diagram.jpg")
+
 ### Containers
 
 #### Base
