@@ -46,7 +46,7 @@ class Permutation {
   /**
    * Build steps.
    */
-  public buildSteps($main) {
+  public build($main) {
 
   }
 

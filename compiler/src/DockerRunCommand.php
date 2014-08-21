@@ -2,17 +2,12 @@
 
 namespace Compiler;
 
-class DockerRunCommand {
+class DockerRunCommand extends DockerBaseCommand {
 
   /**
-   * The path to the Docker binary.
+   * The name of the image.
    */
-  private $binary = 'docker';
-
-  /**
-   * The name of the container.
-   */
-  private $container = '';
+  private $image = '';
 
   /**
    * If this Docker command will use the "Daemon" flag.
@@ -35,17 +30,12 @@ class DockerRunCommand {
   private $links = array();
 
   /**
-   * The command that gets run as part of the entry point.
-   */
-  private $cmd = '';
-
-  /**
    * Builds the return command.
    */
   public function build() {
     // Ensure we have a container to spin up.
-    $container = $this->getContainer();
-    if (empty($container)) {
+    $image = $this->getImage();
+    if (empty($image)) {
       return false;
     }
 
@@ -77,7 +67,7 @@ class DockerRunCommand {
     if (!empty($args)) {
       $command .= ' ' . implode(" ", $args);
     }
-    $command .= ' ' . $container;
+    $command .= ' ' . $image;
     $cmd = $this->getCommand();
     if (!empty($cmd)) {
       $command .= ' ' . $cmd;
@@ -98,31 +88,17 @@ class DockerRunCommand {
   }
 
   /**
-   * Gets the binary.
+   * Gets the image.
    */
-  public function setBinary($binary) {
-    $this->binary = $binary;
+  public function setImage($image) {
+    $this->image = $image;
   }
 
   /**
-   * Sets the binary.
+   * Sets the image.
    */
-  public function getBinary() {
-    return $this->binary;
-  }
-
-  /**
-   * Gets the container.
-   */
-  public function setContainer($container) {
-    $this->container = $container;
-  }
-
-  /**
-   * Sets the container.
-   */
-  public function getContainer() {
-    return $this->container;
+  public function getImage() {
+    return $this->image;
   }
 
   /**
@@ -194,20 +170,6 @@ class DockerRunCommand {
    */
   public function addLink($link) {
     $this->links[] = $link;
-  }
-
-  /**
-   * Gets the cmd.
-   */
-  public function setCommand($cmd) {
-    $this->cmd = $cmd;
-  }
-
-  /**
-   * Sets the cmd.
-   */
-  public function getCommand() {
-    return $this->cmd;
   }
 
 }
