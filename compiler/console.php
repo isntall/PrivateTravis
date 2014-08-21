@@ -37,6 +37,7 @@ $console
     $output->writeln('# Only make manual edits if you are debugging.');
     $output->writeln("\n");
 
+
     // Get the permutations.
     foreach ($language_versions as $language_version) {
       $output->writeln('echo "Performing tests for: ' . $language . $language_version . '"');

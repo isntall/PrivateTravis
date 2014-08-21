@@ -41,6 +41,7 @@ class Permutation {
     $run = new DockerRunCommand();
     $run->setRemove(true);
     $run->setImage($namespace . '/' . $language);
+    $run->addVolume('`pwd`:/data');
     $run->setLinks($links);
     $run->setCommand($command);
 
