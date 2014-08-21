@@ -1,7 +1,6 @@
 <!--
   name: build.xml
-  description: The main project build file for phing operations. This file is to be
-               overridden with project specific configuration.
+  description: A build file for the Compiler project.
 -->
 
 <project name="compiler" default="build" phingVersion="2.4.11">
