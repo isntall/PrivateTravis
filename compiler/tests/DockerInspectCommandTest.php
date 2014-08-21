@@ -2,6 +2,9 @@
 
 namespace Compiler;
 
+/**
+ * @codeCoverageIgnore
+ */
 class DockerInspectCommandTest extends \PHPUnit_Framework_TestCase {
 
   public function testBuild() {

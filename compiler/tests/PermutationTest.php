@@ -2,6 +2,9 @@
 
 namespace Compiler;
 
+/**
+ * @codeCoverageIgnore
+ */
 class PermutationTest extends \PHPUnit_Framework_TestCase {
 
   public function testAddService() {
