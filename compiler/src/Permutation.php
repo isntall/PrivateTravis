@@ -135,6 +135,16 @@ class Permutation {
   }
 
   /**
+   * A little wrapper around addService() so we can take multiple services in
+   * one line.
+   */
+  public function addServices($services) {
+    foreach ($services as $service) {
+      $this->addService($service);
+    }
+  }
+
+  /**
    * Get language.
    */
   public function setLanguage($language) {

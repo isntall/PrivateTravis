@@ -1,0 +1,19 @@
+# This is a file that we can use for testing the expected output for the console
+# command.
+#
+# To use this file as a test (while in the same directory as this file) run the
+# following command:
+#
+#   php ../console.php build
+#
+
+language: php
+
+php:
+  - 5.4
+  - 5.5
+
+services:
+  - mysql
+  - postgres
+  - riak
