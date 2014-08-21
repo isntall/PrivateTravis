@@ -24,7 +24,7 @@ class PermutationTest extends \PHPUnit_Framework_TestCase {
     $this->assertEquals($require, $steps);
 
     // More than one service.
-    $permutation->addService('postgres');
+    $permutation->addServices(array('postgres'));
     $steps = $permutation->getSteps();
     $require = array(
       'MYSQL_ID=$(docker run -d --rm drupal/mysql)',

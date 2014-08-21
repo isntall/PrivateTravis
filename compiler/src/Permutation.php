@@ -81,8 +81,10 @@ class Permutation {
   /**
    * Add a steps.
    */
-  public function addStep($command) {
-    $this->steps[] = $command;
+  public function addStep($step) {
+    $steps = $this->getSteps();
+    $steps[] = $step;
+    $this->setSteps($steps);
   }
 
   /**
@@ -103,7 +105,9 @@ class Permutation {
    * Set namespace.
    */
   public function addLink($link) {
-    $this->links[] = $link;
+    $links = $this->getLinks();
+    $links[] = $link;
+    $this->setLinks($links);
   }
 
   /**

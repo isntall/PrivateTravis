@@ -147,7 +147,9 @@ class DockerRunCommand extends DockerBaseCommand {
    * Adds a volume.
    */
   public function addVolume($volume) {
-    $this->volumes[] = $volume;
+    $volumes = $this->getVolumes();
+    $volumes[] = $volume;
+    $this->setVolumes($volumes);
   }
 
   /**

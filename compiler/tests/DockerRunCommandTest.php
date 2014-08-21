@@ -9,6 +9,7 @@ class DockerRunCommandTest extends \PHPUnit_Framework_TestCase {
       $run = new DockerRunCommand();
 
       // Container.
+      $run->setBinary('docker');
       $this->assertFalse($run->build());
       $run->setImage('foo/bar');
       $command = $run->build();
