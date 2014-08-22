@@ -1,21 +1,20 @@
 <?php
 
-require_once('vendor/autoload.php');
+namespace Compiler;
 
-use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Yaml\Yaml;
 use Compiler\Permutation;
 
-$console = new Application();
+class CompilerCommand extends Command {
 
-$console
-  ->register('build')
-  ->setDescription('Build the Docker command to run the .travis.yml file.')
-  ->setCode(function (InputInterface $input, OutputInterface $output) {
+  protected function configure() {
+    $this->setName('build')->setDescription('Build the Docker command to run the .travis.yml file.');
+  }
+
+  protected function execute(InputInterface $input, OutputInterface $output) {
     // @todo Make this a parameter. That way 3rd parties can provide their own
     // containers for testing.
     $namespace = 'drupal';
@@ -55,6 +54,6 @@ $console
       }
       $output->writeln("\n");
     }
-  });
+  }
 
-$console->run();
+}
