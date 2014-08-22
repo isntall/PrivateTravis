@@ -1,6 +1,6 @@
 <!--
   name: build.xml
-  description: A build file for the Compiler project.
+  description: A build file for the Compiler project.g
 -->
 
 <project name="compiler" default="build" phingVersion="2.4.11">
@@ -8,6 +8,7 @@
   <!-- Properties. -->
 
   <property name="composer.bin" value="composer" />
+  <property name="box.bin" value="bin/box" />
   <property name="phpunit.bin" value="bin/phpunit" />
   <property name="phpunit.coverage.dir" value="tests/coverage" />
 
@@ -15,7 +16,7 @@
 
   <target name="build"
           description="Build the project and runs unit tests to verify project integrity."
-          depends="composer:install, test" />
+          depends="composer:install, test, box:build" />
 
   <target name="test"
           description="Install's composer dependencies as provided in composer.json file."
@@ -31,6 +32,11 @@
   <target name="phpunit:coverage"
           description="Run phpunit tests with coverage.">
     <exec command="${phpunit.bin} --coverage-html ${phpunit.coverage.dir}" logoutput="true" />
+  </target>
+
+  <target name="box:build"
+          description="Run box to build the .phar executable.">
+    <exec command="${box.bin} build" logoutput="true" />
   </target>
 
 </project>

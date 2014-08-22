@@ -23,7 +23,7 @@ class PermutationTest extends \PHPUnit_Framework_TestCase {
     );
     $this->assertEquals($require, $steps);
     $steps = $permutation->build();
-    $require[] = 'docker run --rm --link $MYSQL:mysql drupal/php5.4 env before_script script';
+    $require[] = 'docker run --rm -v `pwd`:/data --link $MYSQL:mysql drupal/php5.4 env before_script script';
     $this->assertEquals($require, $steps);
 
     // More than one service.
@@ -37,7 +37,7 @@ class PermutationTest extends \PHPUnit_Framework_TestCase {
     );
     $this->assertEquals($require, $steps);
     $steps = $permutation->build();
-    $require[] = 'docker run --rm --link $MYSQL:mysql --link $POSTGRES:postgres drupal/php5.4 env before_script script';
+    $require[] = 'docker run --rm -v `pwd`:/data --link $MYSQL:mysql --link $POSTGRES:postgres drupal/php5.4 env before_script script';
     $this->assertEquals($require, $steps);
 
   }
