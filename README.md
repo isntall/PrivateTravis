@@ -9,38 +9,9 @@ Base containers that are used for a Drupal Travis CI knockoff.
 
 ### Containers
 
-#### Base
+All the containers that are provided for this CI can be found here:
 
-This container is responsible for providing all the base packages including:
-
-* PHP-CLI
-* PHPENV
-* Composer
-* Travis command line utility
-
-#### PHP 5.4
-
-Provides PHP 5.4 for Travis runs. Yep, that's about it.
-
-#### PHP 5.5
-
-Provides PHP 5.5 for Travis runs. Yep, that's about it.
-
-#### Installation
-
-We have a simple Makefile in this repository to help with building the
-containers. This project requires you have the "make" package installed.
-
-```
-eg. apt-get install -y make
-
-```
-
-On a Docker based host run the following command:
-
-```
-make build
-```
+[Link to container docs](containers/README.md)
 
 ### The compiler
 
@@ -54,48 +25,7 @@ This is where the following compiler comes into play. Here is an example of the
 command that you can run to compile the .travis.yml file into the many
 permutations.
 
-**Basic**:
-
-The very basic command with standard containers.
-
-```
-compiler build
-```
-
-**Namespace**:
-
-To override the provider of the containers. A good example of this would be if
-you had your own custom containers for testing and/or personal testing.
-
-```
-compiler build --namespace="drupal"
-```
-
-**Commands**:
-
-This will allow you to define your own custom command groups that will get
-loaded from the YAML file.
-
-```
-compiler build env before_script script
-```
-
-**YAML**:
-
-This allows for a different file to be loaded from the project.
-
-```
-compiler build --file=".othername.yml"
-```
-
-#### Installation
-
-We use composer to pull down the applications dependencies. Run the following
-command to get setup:
-
-```
-cd compiler && composer install --prefer-dist
-```
+[Link to Compiler docs](compiler/README.md)
 
 ### Vagrant
 

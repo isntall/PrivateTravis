@@ -1,4 +1,5 @@
-FROM drupal/base
+FROM        drupal/phpenv
+MAINTAINER  nick_schuch
 
 ##
 # PHP.

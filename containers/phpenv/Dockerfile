@@ -1,4 +1,5 @@
-FROM dockerfile/ruby
+FROM        dockerfile/ruby
+MAINTAINER  nick_schuch
 
 ##
 # Base.
