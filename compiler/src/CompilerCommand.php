@@ -5,23 +5,23 @@ namespace Compiler;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Yaml\Yaml;
 use Compiler\Permutation;
 
 class CompilerCommand extends Command {
 
   protected function configure() {
-    $this->setName('build')->setDescription('Build the Docker command to run the .travis.yml file.');
+    $this->setName('build')
+         ->setDescription('Build the Docker command to run the .travis.yml file.')
+         ->addArgument('commands', InputArgument::IS_ARRAY | InputArgument::REQUIRED, 'The TravisCI commands that will be run.')
+         ->addOption('namespace', null, InputOption::VALUE_REQUIRED, 'Docker namespace to pull containers.', 1);
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {
-    // @todo Make this a parameter. That way 3rd parties can provide their own
-    // containers for testing.
-    $namespace = 'drupal';
-
-    // @todo, Make this a parameter. That we we can experiment with changes in
-    // travis build order.
-    $command = 'env before_script script';
+    $namespace = $input->getOption('namespace');
+    $command = implode(' ', $input->getArgument('commands'));
 
     // Get the travis configuration.
     $travis = Yaml::parse('.travis.yml');
