@@ -11,7 +11,7 @@ Base containers that are used for a Drupal Travis CI knockoff.
 
 All the containers that are provided for this CI can be found here:
 
-[Link to container docs](containers/README.md)
+[Link to container docs](containers)
 
 ### The compiler
 
@@ -25,7 +25,7 @@ This is where the following compiler comes into play. Here is an example of the
 command that you can run to compile the .travis.yml file into the many
 permutations.
 
-[Link to Compiler docs](compiler/README.md)
+[Link to Compiler docs](compiler)
 
 ### Vagrant
 
