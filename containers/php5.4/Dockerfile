@@ -1,4 +1,4 @@
-FROM        drupal/phpenv
+FROM        nickschuch/phpenv
 MAINTAINER  nick_schuch
 
 ##
