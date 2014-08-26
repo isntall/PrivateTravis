@@ -40,6 +40,8 @@ Spin up a VM with Docker with the following command:
 vagrant up
 ```
 
-### Things still to be done.
+### Contribution.
 
-Please see the issue page for a list of tasks we still need to do.
+Please see the issue page for a list of tasks we still need to do. If you find a bug please create a new issue.
+
+Cheers!
