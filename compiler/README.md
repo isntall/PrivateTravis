@@ -71,3 +71,13 @@ This allows for a different file to be loaded from the project.
 ```
 compiler build --file=".othername.yml"
 ```
+
+### Testing
+
+This project aims to have full test coverage.
+
+To run tests please run the following command:
+
+```
+phing
+```
