@@ -44,6 +44,8 @@ compiler build
 compiler build > run.sh && ./run.sh
 ```
 
+Note: You will have a build file of "run.sh" leftover after this run, which means that you can either rerun the file or use it for debugging.
+
 **Namespace**:
 
 To override the provider of the containers. A good example of this would be if
