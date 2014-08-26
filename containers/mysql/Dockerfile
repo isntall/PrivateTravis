@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM nickschuch/base
 MAINTAINER nick_schuch
 
 ENV DEBIAN_FRONTEND noninteractive
