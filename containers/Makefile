@@ -1,9 +1,9 @@
 PROVIDER := nickschuch
 
 build:
-  docker build --no-cache --rm -t $(PROVIDER)/base base/.
-  docker build --no-cache --rm -t $(PROVIDER)/mysql mysql/.
-  docker build --no-cache --rm -t $(PROVIDER)/postgres postgres/.
-  docker build --no-cache --rm -t $(PROVIDER)/phpenv phpenv/.
-  docker build --no-cache --rm -t $(PROVIDER)/php5.4 php5.4/.
-  docker build --no-cache --rm -t $(PROVIDER)/php5.5 php5.5/.
+	docker build $(PROVIDER)/base base/.
+	docker build $(PROVIDER)/mysql mysql/.
+	docker build $(PROVIDER)/postgres postgres/.
+	docker build $(PROVIDER)/phpenv phpenv/.
+	docker build $(PROVIDER)/php5.4 php5.4/.
+	docker build $(PROVIDER)/php5.5 php5.5/.
