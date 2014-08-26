@@ -1,6 +1,12 @@
 Containers
 ==========
 
+### Overview
+
+The following containers are used for DrupalCI builds.
+
+### Containers
+
 #### Base
 
 Provides base packages.
@@ -38,7 +44,7 @@ This Docker container provides a basic Postgres service for DrupalCI.
 
 [Read more here](postgres)
 
-#### Installation
+### Installation
 
 We have a simple Makefile in this repository to help with building the
 containers. This project requires you have the "make" package installed.
@@ -53,3 +59,10 @@ On a Docker based host run the following command:
 ```
 make build
 ```
+
+### Test coverage
+
+We use http://serverspec.org to ensure that container are built with the correct
+configuration.
+
+**These tests run at "build".**

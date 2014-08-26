@@ -23,5 +23,14 @@ RUN echo "listen_addresses='*'" >> /etc/postgresql/$PG_VERSION/main/postgresql.c
 RUN service postgresql start && \
  su postgres sh -c "psql -c \"ALTER USER $PG_USER PASSWORD '$PG_PASS';\""
 
+##
+# Run tests.
+##
+
+ADD Rakefile Rakefile
+COPY spec spec
+RUN rake spec
+
 EXPOSE 5432
+
 CMD ["su", "postgres", "-c", "/usr/lib/postgresql/$PG_VERSION/bin/postgres -D /var/lib/postgresql/$PG_VERSION/main/ -c config_file=/etc/postgresql/$PG_VERSION/main/postgresql.conf"]
