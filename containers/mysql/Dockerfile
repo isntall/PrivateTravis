@@ -2,13 +2,27 @@ FROM        ubuntu:14.04
 MAINTAINER  nick_schuch
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV MYSQL_USER root
+ENV MYSQL_PASS root
 
 RUN apt-get update
-RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
-RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
+
+##
+# Configuration.
+##
+
+RUN echo "mysql-server mysql-server/root_password password $MYSQL_USER" | debconf-set-selections
+RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PASS" | debconf-set-selections
+
+##
+# Packages.
+##
 
 RUN apt-get install -y mysql-server
 
+# We do this so all other Docker containers can access this host.
+RUN sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf
+
 EXPOSE 3306
 
-CMD [ "" ]
+CMD [ "mysqld_safe" ]
