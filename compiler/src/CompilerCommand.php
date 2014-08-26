@@ -16,7 +16,7 @@ class CompilerCommand extends Command {
     $this->setName('build')
          ->setDescription('Build the Docker command to run the .travis.yml file.')
          ->addArgument('commands', InputArgument::IS_ARRAY, 'The TravisCI commands that will be run.', array('env', 'before_script', 'script'))
-         ->addOption('file', null, InputOption::VALUE_REQUIRED, 'The file to load.', '.travis.yaml')
+         ->addOption('file', null, InputOption::VALUE_REQUIRED, 'The file to load.', '.travis.yml')
          ->addOption('namespace', null, InputOption::VALUE_REQUIRED, 'Docker namespace to pull containers.', 'nickschuch');
   }
 
@@ -26,7 +26,7 @@ class CompilerCommand extends Command {
     $command = implode(' ', $input->getArgument('commands'));
 
     // Get the travis configuration.
-    $travis = Yaml::parse('.travis.yml');
+    $travis = Yaml::parse($file);
     $language = !empty($travis['language']) ? $travis['language'] : '';
     $language_versions = !empty($travis[$language]) ? $travis[$language] : array();
     $services = !empty($travis['services']) ? $travis['services'] : array();
