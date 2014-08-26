@@ -5,5 +5,5 @@ describe package('travis') do
 end
 
 describe file('/root/.travis/travis-build') do
-  it { should be_file }
+  it { should be_directory }
 end
