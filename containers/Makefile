@@ -1,4 +1,4 @@
-PROVIDER := drupal
+PROVIDER := nickschuch
 
 build:
   docker build --no-cache --rm -t $(PROVIDER)/base base/.
