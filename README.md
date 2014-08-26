@@ -1,6 +1,10 @@
 Docker Drupal
 =============
 
+### Status
+
+[![Build Status](https://travis-ci.org/nickschuch/docker-drupal.svg?branch=master)](https://travis-ci.org/nickschuch/docker-drupal)
+
 ### Overview
 
 Base containers that are used for a Drupal Travis CI knockoff.
