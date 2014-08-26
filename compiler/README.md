@@ -1,15 +1,34 @@
 Compiler
 ========
 
+### Overview
+
 While our containers do run the TravisCI configuration file. They only run the
 build "script" instructions. It's up to us to:
 
-* Build all the permutations eg. PHP 5.5 + Mysql and PHP 5.4 and Postgres
-* Links containers.
+* Build all the permutations.
+* Links Docker containers.
 
-This is where the following compiler comes into play. Here is an example of the
-command that you can run to compile the .travis.yml file into the many
+### Permutations
+
+The following digram demonstrates the how a travis file is converted into
 permutations.
+
+![Diagram](./docs/diagram.png "docs/diagram.png")
+
+### Installation
+
+We use composer to pull down the applications dependencies. Run the following
+command to get setup:
+
+```
+cd compiler && composer install --prefer-dist
+```
+
+### Usage
+
+Here is an example of the command that you can run to compile the .travis.yml
+file into the many permutations.
 
 **Basic**:
 
@@ -43,13 +62,4 @@ This allows for a different file to be loaded from the project.
 
 ```
 compiler build --file=".othername.yml"
-```
-
-#### Installation
-
-We use composer to pull down the applications dependencies. Run the following
-command to get setup:
-
-```
-cd compiler && composer install --prefer-dist
 ```

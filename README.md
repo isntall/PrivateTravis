@@ -11,21 +11,17 @@ Base containers that are used for a Drupal Travis CI knockoff.
 
 All the containers that are provided for this CI can be found here:
 
-[Link to container docs](containers)
+[Read more about Container docs](containers)
 
 ### The compiler
 
 While our containers do run the TravisCI configuration file. They only run the
 build "script" instructions. It's up to us to:
 
-* Build all the permutations eg. PHP 5.5 + Mysql and PHP 5.4 and Postgres
-* Links containers.
+* Build all the permutations.
+* Links Docker containers so we have "services".
 
-This is where the following compiler comes into play. Here is an example of the
-command that you can run to compile the .travis.yml file into the many
-permutations.
-
-[Link to Compiler docs](compiler)
+[Read more about the Compiler](compiler)
 
 ### Vagrant
 
