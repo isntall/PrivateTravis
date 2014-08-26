@@ -1,0 +1,12 @@
+language: php
+
+php:
+  - 5.5
+
+install:
+  # Install global composer dependencies.
+  - composer global require --prefer-dist --no-interaction phing/phing:2.7.*
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+script:
+  - cd compiler && phing
