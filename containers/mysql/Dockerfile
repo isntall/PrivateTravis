@@ -1,5 +1,5 @@
-FROM        ubuntu:14.04
-MAINTAINER  nick_schuch
+FROM ubuntu:14.04
+MAINTAINER nick_schuch
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV MYSQL_USER root

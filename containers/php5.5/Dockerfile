@@ -1,5 +1,5 @@
-FROM        nickschuch/phpenv
-MAINTAINER  nick_schuch
+FROM nickschuch/phpenv
+MAINTAINER nick_schuch
 
 ##
 # PHP.
