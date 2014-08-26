@@ -35,7 +35,7 @@ RUN $HOME/.phpenv/plugins/php-build/install.sh
 # Composer.
 ##
 
-RUN bash -c "wget http://getcomposer.org/composer.phar && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer && chmod 775 /usr/local/bin/composer"
+RUN bash -c "wget http://getcomposer.org/composer.phar && chmod 775 composer.phar && mv composer.phar /usr/local/bin/composer"
 
 ##
 # Travis.
