@@ -23,6 +23,14 @@ RUN apt-get install -y mysql-server
 # We do this so all other Docker containers can access this host.
 RUN sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf
 
+##
+# Run tests.
+##
+
+ADD Rakefile Rakefile
+COPY spec spec
+RUN rake spec
+
 EXPOSE 3306
 
 CMD [ "mysqld_safe" ]
