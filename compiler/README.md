@@ -38,6 +38,12 @@ The very basic command with standard containers.
 compiler build
 ```
 
+**Build and run**
+
+```
+compiler build > run.sh && ./run.sh
+```
+
 **Namespace**:
 
 To override the provider of the containers. A good example of this would be if
