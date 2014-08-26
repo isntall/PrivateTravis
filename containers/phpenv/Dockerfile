@@ -35,7 +35,7 @@ RUN $HOME/.phpenv/plugins/php-build/install.sh
 # Composer.
 ##
 
-RUN bash -c "wget http://getcomposer.org/composer.phar && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer"
+RUN bash -c "wget http://getcomposer.org/composer.phar && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer && chmod 775 /usr/local/bin/composer"
 
 ##
 # Travis.
@@ -45,3 +45,11 @@ RUN gem install travis --no-rdoc --no-ri
 RUN mkdir /root/.travis
 RUN git clone --branch deploy.2014-07-01.03-01 https://github.com/travis-ci/travis-build.git /root/.travis/travis-build
 RUN travis version
+
+##
+# Run tests.
+##
+
+ADD Rakefile Rakefile
+COPY spec spec
+RUN rake spec
