@@ -15,3 +15,4 @@ RUN apt-get upgrade -y
 ##
 
 RUN sudo gem install serverspec
+RUN sudo gem install rake
