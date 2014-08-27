@@ -18,7 +18,7 @@ class PermutationTest extends \PHPUnit_Framework_TestCase {
     $permutation->addService('mysql');
     $steps = $permutation->getSteps();
     $require = array(
-      'MYSQL_ID=$(docker run -d --rm drupal/mysql)',
+      'MYSQL_ID=$(docker run -d drupal/mysql)',
       'MYSQL=$(docker inspect --format "{{ .Name }}" $MYSQL_ID | cut -d "/" -f 2)',
     );
     $this->assertEquals($require, $steps);
@@ -30,9 +30,9 @@ class PermutationTest extends \PHPUnit_Framework_TestCase {
     $permutation->addServices(array('postgres'));
     $steps = $permutation->getSteps();
     $require = array(
-      'MYSQL_ID=$(docker run -d --rm drupal/mysql)',
+      'MYSQL_ID=$(docker run -d drupal/mysql)',
       'MYSQL=$(docker inspect --format "{{ .Name }}" $MYSQL_ID | cut -d "/" -f 2)',
-      'POSTGRES_ID=$(docker run -d --rm drupal/postgres)',
+      'POSTGRES_ID=$(docker run -d drupal/postgres)',
       'POSTGRES=$(docker inspect --format "{{ .Name }}" $POSTGRES_ID | cut -d "/" -f 2)',
     );
     $this->assertEquals($require, $steps);

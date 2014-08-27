@@ -122,7 +122,7 @@ class Permutation {
     // Build the service command.
     $run = new DockerRunCommand();
     $run->setDaemon(true);
-    $run->setRemove(true);
+    // $run->setRemove(true);
     $run->setImage($namespace . '/' . $service);
     $command = $run->build();
     $this->addStep($uppercase_service . '_ID=$(' . $command . ')');
