@@ -12,13 +12,16 @@ RUN apt-get upgrade -y
 RUN apt-get install -y build-essential
 RUN apt-get install -y software-properties-common
 RUN apt-get install -y byobu curl git htop man unzip vim wget
+RUN apt-get install -y python-software-properties
 RUN rm -rf /var/lib/apt/lists/*
 
 ##
 # Ruby.
 ##
 
-RUN apt-get install -y ruby1.9.1 ruby1.9.1-dev
+RUN apt-add-repository ppa:brightbox/ruby-ng-experimental
+RUN apt-get update
+RUN apt-get install -y ruby2.0 ruby2.0-dev ruby2.0-doc
 RUN rm -rf /var/lib/apt/lists/*
 
 ##
