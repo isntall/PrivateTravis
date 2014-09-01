@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "docker"
-  config.vm.provision "shell", inline:
-    "ps aux | grep 'sshd:' | awk '{print $2}' | xargs kill"
+  # config.vm.provision "shell", inline:
+  #   "ps aux | grep 'sshd:' | awk '{print $2}' | xargs kill"
 
 end
