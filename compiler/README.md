@@ -41,7 +41,7 @@ compiler build
 **Build and run**
 
 ```
-compiler build > run.sh && ./run.sh
+compiler build > run && sh run
 ```
 
 Note: You will have a build file of "run.sh" leftover after this run, which means that you can either rerun the file or use it for debugging.
