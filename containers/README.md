@@ -32,6 +32,10 @@ Provides all packages used for builds:
 
 [Read more here](php5.5)
 
+#### PHP5.6
+
+[Read more here](php5.6)
+
 #### Mysql
 
 This Docker container provides a basic Mysql service for DrupalCI.
