@@ -22,6 +22,9 @@ RUN apt-get install -y mysql-server
 
 # We do this so all other Docker containers can access this host.
 RUN sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf
+ADD scripts/configure_mysql.sh /root/configure_mysql.sh
+RUN chmod 775 /root/configure_mysql.sh
+RUN sh /root/configure_mysql.sh
 
 ##
 # Run tests.
