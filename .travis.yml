@@ -9,4 +9,8 @@ install:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 script:
-  - cd compiler && phing
+  - cd compiler
+  - phing
+
+after_script:
+ - php bin/coveralls -v
