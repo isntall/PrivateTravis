@@ -5,6 +5,8 @@ Docker Drupal
 
 [![Build Status](https://travis-ci.org/nickschuch/docker-drupal.svg?branch=master)](https://travis-ci.org/nickschuch/docker-drupal)
 
+[![Coverage Status](https://coveralls.io/repos/nickschuch/docker-drupal/badge.png?branch=coveralls)](https://coveralls.io/r/nickschuch/docker-drupal?branch=coveralls)
+
 ### Overview
 
 Base containers that are used for a Drupal Travis CI knockoff.
