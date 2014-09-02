@@ -7,3 +7,4 @@ build:
 	docker build $(PROVIDER)/phpenv phpenv/.
 	docker build $(PROVIDER)/php5.4 php5.4/.
 	docker build $(PROVIDER)/php5.5 php5.5/.
+	docker build $(PROVIDER)/php5.6 php5.6/.
