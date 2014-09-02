@@ -1,13 +1,13 @@
 PROVIDER := nickschuch
 
 build:
-	docker build $(PROVIDER)/base base/.
-	docker build $(PROVIDER)/mysql mysql/.
-	docker build $(PROVIDER)/postgres postgres/.
-	docker build $(PROVIDER)/phpenv phpenv/.
-	docker build $(PROVIDER)/php5.4 php5.4/.
-	docker build $(PROVIDER)/php5.5 php5.5/.
-	docker build $(PROVIDER)/php5.6 php5.6/.	
+	docker build -t $(PROVIDER)/base base/.
+	docker build -t $(PROVIDER)/mysql mysql/.
+	docker build -t $(PROVIDER)/postgres postgres/.
+	docker build -t $(PROVIDER)/phpenv phpenv/.
+	docker build -t $(PROVIDER)/php5.4 php5.4/.
+	docker build -t $(PROVIDER)/php5.5 php5.5/.
+	docker build -t $(PROVIDER)/php5.6 php5.6/.	
 
 pull:
 	docker pull $(PROVIDER)/base

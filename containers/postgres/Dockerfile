@@ -2,7 +2,7 @@ FROM nickschuch/base
 MAINTAINER nick_schuch
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV PG_VERSION 9.3
+ENV PG_VERSION 9.1
 ENV PG_USER postgres
 ENV PG_PASS postgres
 

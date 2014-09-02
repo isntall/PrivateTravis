@@ -1,4 +1,4 @@
-FROM nickschuch/base
+FROM       nickschuch/base
 MAINTAINER nick_schuch
 
 ENV DEBIAN_FRONTEND noninteractive
