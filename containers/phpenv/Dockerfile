@@ -19,6 +19,20 @@ RUN apt-get build-dep -y php5-cli
 # Make the PHP compiles go faster.
 RUN apt-get install -y ccache
 
+# Ensure we can sudo.
+RUN apt-get install -y sudo
+
+### 
+# Travis user
+##
+
+RUN adduser --disabled-login --gecos 'Travis' travis
+RUN echo 'travis ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+
+USER travis
+ENV HOME /home/travis
+WORKDIR /home/travis
+
 ##
 # PHPENV.
 ##
@@ -26,8 +40,10 @@ RUN apt-get install -y ccache
 RUN git clone https://github.com/CHH/phpenv.git /tmp/phpenv
 RUN /tmp/phpenv/bin/phpenv-install.sh
 RUN scp /tmp/phpenv/extensions/* $HOME/.phpenv/libexec/
-ENV PATH $HOME/.phpenv/libexec:$HOME/.phpenv/bin:$HOME/.phpenv/shims:$PATH
-RUN echo 'eval "$(phpenv init -)"' >> $HOME/.bashrc
+
+RUN echo 'eval "$(phpenv init -)"' >> /$HOME/.bashrc
+ENV PATH /home/travis/.phpenv/shims:/home/travis/.phpenv/bin:$PATH
+
 RUN git clone git://github.com/nickschuch/php-build.git $HOME/.phpenv/plugins/php-build
 RUN $HOME/.phpenv/plugins/php-build/install.sh
 
@@ -41,9 +57,9 @@ RUN bash -c "wget http://getcomposer.org/composer.phar && chmod 775 composer.pha
 # Travis.
 ##
 
-RUN gem install travis --no-rdoc --no-ri
-RUN mkdir /root/.travis
-RUN git clone --branch deploy.2014-07-01.03-01 https://github.com/travis-ci/travis-build.git /root/.travis/travis-build
+RUN sudo gem install travis --no-rdoc --no-ri
+RUN mkdir /home/travis/.travis
+RUN git clone --branch deploy.2014-07-01.03-01 https://github.com/travis-ci/travis-build.git /home/travis/travis-build
 RUN travis version
 
 ##
