@@ -5,7 +5,8 @@ MAINTAINER nick_schuch
 # PHP.
 ##
 
-RUN php-build -i development --pear 5.5.15 $HOME/.phpenv/versions/5.5.15
+RUN sudo php-build -i development --pear 5.5.15 $HOME/.phpenv/versions/5.5.15
+RUN sudo chown -R travis:travis $HOME/.phpenv
 RUN phpenv rehash
 RUN phpenv global 5.5.15
 

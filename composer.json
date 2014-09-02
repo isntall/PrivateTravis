@@ -1,0 +1,17 @@
+{
+  "name": "nickschuch/docker-drupal",
+  "type": "library",
+  "description": "TravisCI like CI.",
+  "homepage": "https://github.com/nickschuch/docker-drupal",
+  "support": {
+    "issues": "https://github.com/nickschuch/docker-drupal",
+    "source": "https://github.com/nickschuch/docker-drupal"
+  },
+  "keywords": [
+    "drupal",
+    "docker",
+    "travis",
+    "ci"
+  ],
+  "license": "GPL-2.0+"
+}
