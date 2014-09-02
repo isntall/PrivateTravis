@@ -31,6 +31,8 @@ class CompilerCommand extends Command {
     $language_versions = !empty($travis[$language]) ? $travis[$language] : array();
     $services = !empty($travis['services']) ? $travis['services'] : array();
 
+    $output->writeln("#!/bin/bash");
+
     // Get the permutations.
     foreach ($language_versions as $language_version) {
       $output->writeln("#### Permutation $language$language_version ####");
