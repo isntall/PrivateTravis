@@ -3,7 +3,7 @@ Docker Drupal
 
 ### Status
 
-[![Build Status](https://travis-ci.org/nickschuch/docker-drupal.svg?branch=master)](https://travis-ci.org/nickschuch/docker-drupal)
+[![Build Status](https://travis-ci.org/nickschuch/docker-drupal.svg?branch=master)](https://travis-ci.org/nickschuch/docker-drupal) [![Coverage Status](https://coveralls.io/repos/nickschuch/docker-drupal/badge.png?branch=coveralls)](https://coveralls.io/r/nickschuch/docker-drupal?branch=coveralls)
 
 ### Overview
 
