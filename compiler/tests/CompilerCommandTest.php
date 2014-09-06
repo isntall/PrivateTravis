@@ -23,6 +23,7 @@ class CompilerCommandTest extends \PHPUnit_Framework_TestCase {
         ),
         '--file' => 'tests/.travis.yml',
         '--namespace' => 'bazza',
+        '--fail-fast' => true,
       )
     );
 
@@ -31,6 +32,9 @@ class CompilerCommandTest extends \PHPUnit_Framework_TestCase {
 
     // Namespace.
     $this->assertRegExp('/bazza\/mysql/', $commandTester->getDisplay());
+
+    // Fail fast.
+    $this->assertRegExp('/set -e/', $commandTester->getDisplay());
   }
 
 }
