@@ -45,7 +45,7 @@ class CompilerCommand extends Command {
 
       $permutation = new Permutation();
       $permutation->setNamespace($namespace);
-      $permutation->setLanguage($language . $language_version);
+      $permutation->setLanguage($language . ':' . $language_version);
       $permutation->setCommand($command);
       $permutation->addServices($services);
 
