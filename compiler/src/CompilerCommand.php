@@ -17,7 +17,8 @@ class CompilerCommand extends Command {
          ->setDescription('Build the Docker command to run the .travis.yml file.')
          ->addArgument('commands', InputArgument::IS_ARRAY, 'The TravisCI commands that will be run.', array('env', 'before_script', 'script'))
          ->addOption('file', null, InputOption::VALUE_REQUIRED, 'The file to load.', '.travis.yml')
-         ->addOption('namespace', null, InputOption::VALUE_REQUIRED, 'Docker namespace to pull containers.', 'nickschuch');
+         ->addOption('namespace', null, InputOption::VALUE_REQUIRED, 'Docker namespace to pull containers.', 'nickschuch')
+         ->addOption('fail-fast', null, InputOption::VALUE_NONE, 'Fail the build fast if any errors.');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {
@@ -32,6 +33,11 @@ class CompilerCommand extends Command {
     $services = !empty($travis['services']) ? $travis['services'] : array();
 
     $output->writeln("#!/bin/bash");
+
+    $fail_fast = $input->getOption('fail-fast');
+    if ($fail_fast) {
+      $output->writeln("set -e");
+    }
 
     // Get the permutations.
     foreach ($language_versions as $language_version) {
