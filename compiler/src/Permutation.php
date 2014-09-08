@@ -10,6 +10,11 @@ class Permutation {
   private $namespace = '';
 
   /**
+   * Sets the containers as "privileged".
+   */
+  private $privileged = false;
+
+  /**
    * The build steps that are run for this permuation.
    */
   private $steps = array();
@@ -37,12 +42,19 @@ class Permutation {
     $language = $this->getLanguage();
     $links = $this->getLinks();
     $command = $this->getCommand();
+    $privileged = $this->getPrivileged();
 
     $run = new DockerRunCommand();
     $run->setRemove(true);
     $run->setImage($namespace . '/' . $language);
     $run->addVolume('`pwd`:/data');
     $run->setLinks($links);
+
+    // Privileged.
+    if ($privileged) {
+      $run->setPrivileged(true);
+    }
+
     $run->setCommand($command);
 
     $commands = $this->getSteps();
@@ -124,6 +136,13 @@ class Permutation {
     $run->setDaemon(true);
     // $run->setRemove(true);
     $run->setImage($namespace . '/' . $service);
+
+    // Privileged.
+    $privileged = $this->getPrivileged();
+    if ($privileged) {
+      $run->setPrivileged(true);
+    }
+
     $command = $run->build();
     $this->addStep($uppercase_service . '_ID=$(' . $command . ')');
 
@@ -175,6 +194,20 @@ class Permutation {
    */
   public function getCommand() {
     return $this->cmd;
+  }
+
+  /**
+   * Sets the containers as "privileged".
+   */
+  public function setPrivileged($privileged) {
+    $this->privileged = $privileged;
+  }
+
+  /**
+   * Gets the containers "privileged" status.
+   */
+  public function getPrivileged() {
+    return $this->privileged;
   }
 
 }
