@@ -24,6 +24,10 @@ Provides all packages used for builds:
 
 [Read more here](phpenv)
 
+#### PHP5.3
+
+[Read more here](php5.3)
+
 #### PHP5.4
 
 [Read more here](php5.4)
