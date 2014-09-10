@@ -44,6 +44,25 @@ Spin up a VM with Docker with the following command:
 vagrant up
 ```
 
+### Packer
+
+Packer is an amazing tool for building prepackaged images. Currently we are only building an AWS image.
+A Vagrant image is also on the roadmap.
+
+#### Installation
+
+http://www.packer.io/docs/installation.html
+
+#### Usage
+
+Images can be built via the following commands:
+
+```
+$ export AWS_ACCESS_KEY='Super secret access key'
+$ export AWS_SECRET_KEY='Super secret secret key'
+$ packer build packer/ubuntu/amazon.json
+```
+
 ### Contribution.
 
 Please see the issue page for a list of tasks we still need to do. If you find a bug please create a new issue.
