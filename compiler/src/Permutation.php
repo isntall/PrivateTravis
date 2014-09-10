@@ -128,7 +128,7 @@ class Permutation {
    */
   public function addService($service) {
     // Convert the service name to uppercase for bash variables.
-    $uppercase_service = strtoupper($service);
+    $uppercase_service = str_replace("-", "_", strtoupper($service));
     $namespace = $this->getNamespace();
 
     // Build the service command.
