@@ -49,12 +49,10 @@ class CompilerCommand extends Command {
       $permutation->setNamespace($namespace);
       $permutation->setLanguage($language . ':' . $language_version);
       $permutation->setCommand($command);
-      $permutation->addServices($services);
-
-      // Check if this container can be 
       if ($privileged) {
         $permutation->setPrivileged(true);
       }
+      $permutation->addServices($services);
 
       // Print.
       $lines = $permutation->build();
