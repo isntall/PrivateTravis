@@ -10,6 +10,11 @@ class DockerRunCommand extends DockerBaseCommand {
   private $image = '';
 
   /**
+   * Sets the containers as "privileged".
+   */
+  private $privileged = false;
+
+  /**
    * If this Docker command will use the "Daemon" flag.
    */
   private $daemon = false;
@@ -50,6 +55,11 @@ class DockerRunCommand extends DockerBaseCommand {
     $remove = $this->getRemove();
     if ($remove) {
       $args[] = '--rm';
+    }
+
+    $privileged = $this->getPrivileged();
+    if ($privileged) {
+      $args[] = '--privileged';
     }
 
     $volumes = $this->getVolumes();
@@ -172,6 +182,20 @@ class DockerRunCommand extends DockerBaseCommand {
    */
   public function addLink($link) {
     $this->links[] = $link;
+  }
+
+  /**
+   * Sets the containers as "privileged".
+   */
+  public function setPrivileged($privileged) {
+    $this->privileged = $privileged;
+  }
+
+  /**
+   * Gets the containers "privileged" status.
+   */
+  public function getPrivileged() {
+    return $this->privileged;
   }
 
 }

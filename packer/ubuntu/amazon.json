@@ -1,0 +1,29 @@
+{
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "./containers",
+      "destination": "/tmp/containers"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "scripts": [
+        "packer/ubuntu/scripts/base.sh",
+        "packer/ubuntu/scripts/sshd.sh",
+        "packer/ubuntu/scripts/docker.sh",
+        "packer/ubuntu/scripts/containers.sh"
+      ]
+    }
+  ],
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "ap-southeast-2",
+      "source_ami": "ami-fddabdc7",
+      "instance_type": "m3.medium",
+      "ssh_username": "ubuntu",
+      "ami_name": "docker-drupal {{timestamp}}"
+    }
+  ]
+}

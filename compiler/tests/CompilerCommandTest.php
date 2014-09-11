@@ -24,6 +24,7 @@ class CompilerCommandTest extends \PHPUnit_Framework_TestCase {
         '--file' => 'tests/.travis.yml',
         '--namespace' => 'bazza',
         '--fail-fast' => true,
+        '--privileged' => true,
       )
     );
 

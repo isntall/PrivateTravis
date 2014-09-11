@@ -18,7 +18,8 @@ class CompilerCommand extends Command {
          ->addArgument('commands', InputArgument::IS_ARRAY, 'The TravisCI commands that will be run.', array('env', 'before_script', 'script'))
          ->addOption('file', null, InputOption::VALUE_REQUIRED, 'The file to load.', '.travis.yml')
          ->addOption('namespace', null, InputOption::VALUE_REQUIRED, 'Docker namespace to pull containers.', 'nickschuch')
-         ->addOption('fail-fast', null, InputOption::VALUE_NONE, 'Fail the build fast if any errors.');
+         ->addOption('fail-fast', null, InputOption::VALUE_NONE, 'Fail the build fast if any errors.')
+         ->addOption('privileged', null, InputOption::VALUE_NONE, 'Run the containers in "privileged" mode. Giving them access to high kernel functionality eg. TMPFS.');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {
@@ -31,6 +32,7 @@ class CompilerCommand extends Command {
     $language = !empty($travis['language']) ? $travis['language'] : '';
     $language_versions = !empty($travis[$language]) ? $travis[$language] : array();
     $services = !empty($travis['services']) ? $travis['services'] : array();
+    $privileged = $input->getOption('privileged');
 
     $output->writeln("#!/bin/bash");
 
@@ -47,6 +49,9 @@ class CompilerCommand extends Command {
       $permutation->setNamespace($namespace);
       $permutation->setLanguage($language . ':' . $language_version);
       $permutation->setCommand($command);
+      if ($privileged) {
+        $permutation->setPrivileged(true);
+      }
       $permutation->addServices($services);
 
       // Print.
