@@ -1,2 +1,4 @@
 .vagrant
 .idea
+packer_cache
+boxes
