@@ -4,4 +4,7 @@
 # Author:      Nick Schuch (nick@myschuch.com)
 # Description: Pull down the containers required for a build via the make command.
 
-cd /tmp/containers && make pull
+# Go to the container subproject.
+cd /root/docker-drupal/containers
+
+make pull

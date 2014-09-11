@@ -11,6 +11,7 @@
       "scripts": [
         "packer/ubuntu/scripts/base.sh",
         "packer/ubuntu/scripts/sshd.sh",
+        "packer/ubuntu/scripts/compiler.sh",
         "packer/ubuntu/scripts/docker.sh",
         "packer/ubuntu/scripts/containers.sh"
       ]

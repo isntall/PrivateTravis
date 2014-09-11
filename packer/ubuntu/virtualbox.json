@@ -44,12 +44,17 @@
     "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
     "disk_size": 10140,
     "vboxmanage": [
-      ["modifyvm", "{{.Name}}", "--memory", "1024"],
-      ["modifyvm", "{{.Name}}", "--cpus", "1"],
+      ["modifyvm", "{{.Name}}", "--memory", "2048"], 
+      ["modifyvm", "{{.Name}}", "--cpus", "2"],
       ["modifyvm", "{{.Name}}", "--pae", "on"]
     ]
   }],
   "provisioners": [
+    {
+      "type": "file",
+      "source": "./compiler",
+      "destination": "/tmp/compiler"
+    },
     {
       "type": "file",
       "source": "./containers",
@@ -61,6 +66,7 @@
       "scripts": [
         "packer/ubuntu/scripts/base.sh",
         "packer/ubuntu/scripts/sshd.sh",
+        "packer/ubuntu/scripts/compiler.sh",
         "packer/ubuntu/scripts/docker.sh",
         "packer/ubuntu/scripts/containers.sh"
       ]
