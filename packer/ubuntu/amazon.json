@@ -1,16 +1,10 @@
 {
   "provisioners": [
     {
-      "type": "file",
-      "source": "./containers",
-      "destination": "/tmp/containers"
-    },
-    {
       "type": "shell",
       "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "scripts": [
         "packer/ubuntu/scripts/base.sh",
-        "packer/ubuntu/scripts/sshd.sh",
         "packer/ubuntu/scripts/compiler.sh",
         "packer/ubuntu/scripts/docker.sh",
         "packer/ubuntu/scripts/containers.sh"

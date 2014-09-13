@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -eux
 
 # Name:        compiler.sh
 # Author:      Nick Schuch (nick@myschuch.com)
@@ -6,6 +6,9 @@
 
 # Go to the compiler subproject.
 cd /root/docker-drupal/compiler
+
+# We need to do this so we can build the .phar for the compiler.
+echo "phar.readonly = Off" >> /etc/php5/cli/php.ini
 
 # Run the test suite and generate a .phar file.
 phing

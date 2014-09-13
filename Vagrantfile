@@ -9,8 +9,8 @@ box      = 'precise64'
 url      = 'http://files.vagrantup.com/' + box + '.box'
 hostname = 'docker-drupal'
 domain   = 'dev'
-cpus     = '1'
-ram      = '1024'
+cpus     = '2'
+ram      = '2048'
 
 ##
 # Configuration.
@@ -43,8 +43,12 @@ Vagrant.configure("2") do |config|
     vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
   end
 
-  config.vm.provision "docker"
-  # config.vm.provision "shell", inline:
-  #   "ps aux | grep 'sshd:' | awk '{print $2}' | xargs kill"
+  # We reuse the packer script since they are available to us.
+  # This is a good way to test them out.
+  config.vm.provision :shell, :path => "packer/ubuntu/scripts/base.sh"
+  config.vm.provision :shell, :path => "packer/ubuntu/scripts/sshd.sh"
+  config.vm.provision :shell, :path => "packer/ubuntu/scripts/compiler.sh"
+  config.vm.provision :shell, :path => "packer/ubuntu/scripts/docker.sh"
+  config.vm.provision :shell, :path => "packer/ubuntu/scripts/containers.sh"
 
 end
