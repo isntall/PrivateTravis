@@ -52,7 +52,7 @@ To override the provider of the containers. A good example of this would be if
 you had your own custom containers for testing and/or personal testing.
 
 ```
-compiler build --namespace="drupal"
+compiler build --namespace="privatetravis"
 ```
 
 **Commands**:

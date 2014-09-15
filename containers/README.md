@@ -3,7 +3,7 @@ Containers
 
 ### Overview
 
-The following containers are used for DrupalCI builds.
+The following containers are used for PrivateTravis builds.
 
 ### Containers
 
@@ -42,13 +42,13 @@ Provides all packages used for builds:
 
 #### Mysql
 
-This Docker container provides a basic Mysql service for DrupalCI.
+This Docker container provides a basic Mysql service.
 
 [Read more here](mysql)
 
 #### Postgres
 
-This Docker container provides a basic Postgres service for DrupalCI.
+This Docker container provides a basic Postgres service.
 
 [Read more here](postgres)
 

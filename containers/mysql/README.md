@@ -3,7 +3,7 @@ Mysql
 
 ### Overview
 
-This Docker container provides a basic Mysql service for DrupalCI.
+This Docker container provides a basic Mysql service.
 
 ### Usage
 

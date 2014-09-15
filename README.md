@@ -5,11 +5,11 @@ PrivateTravis
 
 ### Status
 
-[![Build Status](https://travis-ci.org/nickschuch/docker-drupal.svg?branch=master)](https://travis-ci.org/nickschuch/docker-drupal) [![Coverage Status](https://coveralls.io/repos/nickschuch/docker-drupal/badge.png?branch=coveralls)](https://coveralls.io/r/nickschuch/docker-drupal?branch=coveralls)
+[![Build Status](https://travis-ci.org/nickschuch/PrivateTravis.svg?branch=master)](https://travis-ci.org/nickschuch/PrivateTravis) [![Coverage Status](https://coveralls.io/repos/nickschuch/PrivateTravis/badge.png?branch=coveralls)](https://coveralls.io/r/nickschuch/PrivateTravis?branch=coveralls)
 
 ### Overview
 
-Base containers that are used for a Drupal Travis CI knockoff.
+Runs a private version of the Travis YAML file format on Docker conatainers. Giving you a Private Travis-like setup.
 
 ![Diagram](./docs/diagram.png "docs/diagram.png")
 

@@ -7,7 +7,7 @@
 
 box      = 'precise64'
 url      = 'http://files.vagrantup.com/' + box + '.box'
-hostname = 'docker-drupal'
+hostname = 'pt'
 domain   = 'dev'
 cpus     = '2'
 ram      = '2048'

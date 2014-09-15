@@ -3,7 +3,7 @@ Postgres
 
 ### Overview
 
-This Docker container provides a basic Postgres service for DrupalCI.
+This Docker container provides a basic Postgres service.
 
 ### Usage
 
