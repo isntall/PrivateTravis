@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>PrivateTravis by nickschuch</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>PrivateTravis</h1>
+        <h2>Runs a private version of the Travis YAML file format on Docker conatainers. Giving you a Private Travis-like setup.</h2>
+        <a href="https://github.com/nickschuch/PrivateTravis" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p><img src="./docs/logo.png" alt="PrivateTravis logo" title="PrivateTravis logo"></p>
+
+<h3>
+<a name="status" class="anchor" href="#status"><span class="octicon octicon-link"></span></a>Status</h3>
+
+<p><a href="https://travis-ci.org/nickschuch/PrivateTravis"><img src="https://travis-ci.org/nickschuch/PrivateTravis.svg?branch=master" alt="Build Status"></a> <a href="https://coveralls.io/r/nickschuch/PrivateTravis?branch=master"><img src="https://coveralls.io/repos/nickschuch/PrivateTravis/badge.png?branch=master" alt="Coverage Status"></a></p>
+
+<h3>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h3>
+
+<p>Runs a private version of the Travis YAML file format on Docker conatainers. Giving you a Private Travis-like setup.</p>
+
+<p><img src="./docs/diagram.png" alt="Diagram" title="docs/diagram.png"></p>
+
+<h3>
+<a name="containers" class="anchor" href="#containers"><span class="octicon octicon-link"></span></a>Containers</h3>
+
+<p>All the containers that are provided for this CI can be found here:</p>
+
+<p><a href="containers">Read more about Container docs</a></p>
+
+<h3>
+<a name="the-compiler" class="anchor" href="#the-compiler"><span class="octicon octicon-link"></span></a>The compiler</h3>
+
+<p>While our containers do run the TravisCI configuration file. They only run the
+build "script" instructions. It's up to us to:</p>
+
+<ul>
+<li>Build all the permutations.</li>
+<li>Links Docker containers so we have "services".</li>
+</ul><p><a href="compiler">Read more about the Compiler</a></p>
+
+<h3>
+<a name="vagrant" class="anchor" href="#vagrant"><span class="octicon octicon-link"></span></a>Vagrant</h3>
+
+<p>Vagrant is very handy. If you do not run Docker natively the following VM will
+provide a method for debugging and building and executing of containers locally.</p>
+
+<p>Install Vagrant (1.6.x):</p>
+
+<pre><code>http://www.vagrantup.com/downloads.html
+</code></pre>
+
+<p>Spin up a VM with Docker with the following command:</p>
+
+<pre><code>vagrant up
+</code></pre>
+
+<h3>
+<a name="packer" class="anchor" href="#packer"><span class="octicon octicon-link"></span></a>Packer</h3>
+
+<p>Packer is an amazing tool for building prepackaged images. Currently we are only building an AWS image.
+A Vagrant image is also on the roadmap.</p>
+
+<h4>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h4>
+
+<p><a href="http://www.packer.io/docs/installation.html">http://www.packer.io/docs/installation.html</a></p>
+
+<h4>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h4>
+
+<p>Images can be built via the following commands:</p>
+
+<pre><code>$ export AWS_ACCESS_KEY='Super secret access key'
+$ export AWS_SECRET_KEY='Super secret secret key'
+$ packer build packer/ubuntu/amazon.json
+</code></pre>
+
+<h3>
+<a name="contribution" class="anchor" href="#contribution"><span class="octicon octicon-link"></span></a>Contribution.</h3>
+
+<p>Please see the issue page for a list of tasks we still need to do. If you find a bug please create a new issue.</p>
+
+<p>Cheers!</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/nickschuch/PrivateTravis/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/nickschuch/PrivateTravis/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/nickschuch/PrivateTravis"></a> is maintained by <a href="https://github.com/nickschuch">nickschuch</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
