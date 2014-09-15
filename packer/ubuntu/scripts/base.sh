@@ -17,6 +17,6 @@ pear channel-discover pear.phing.info
 pear install phing/phing-2.6.1
 
 # This project.
-git clone https://github.com/nickschuch/docker-drupal.git /root/docker-drupal
+git clone https://github.com/nickschuch/PrivateTravis.git /root/PrivateTravis
 
 apt-get clean

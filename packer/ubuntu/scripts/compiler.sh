@@ -5,7 +5,7 @@
 # Description: Install the compiler to the host.
 
 # Go to the compiler subproject.
-cd /root/docker-drupal/compiler
+cd /root/PrivateTravis/compiler
 
 # We need to do this so we can build the .phar for the compiler.
 echo "phar.readonly = Off" >> /etc/php5/cli/php.ini

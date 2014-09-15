@@ -1,4 +1,4 @@
-FROM       nickschuch/phpenv
+FROM       privatetravis/phpenv
 MAINTAINER nick_schuch
 
 ##

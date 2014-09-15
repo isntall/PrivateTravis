@@ -18,7 +18,7 @@
       "source_ami": "ami-fddabdc7",
       "instance_type": "m3.medium",
       "ssh_username": "ubuntu",
-      "ami_name": "docker-drupal {{timestamp}}"
+      "ami_name": "PrivateTravis {{timestamp}}"
     }
   ]
 }
