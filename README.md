@@ -1,5 +1,7 @@
-Docker Drupal
+PrivateTravis
 =============
+
+![PrivateTravis logo](./docs/logo.png "PrivateTravis logo")
 
 ### Status
 
