@@ -5,7 +5,7 @@ PrivateTravis
 
 ### Status
 
-[![Build Status](https://travis-ci.org/nickschuch/PrivateTravis.svg?branch=master)](https://travis-ci.org/nickschuch/PrivateTravis) [![Coverage Status](https://coveralls.io/repos/nickschuch/PrivateTravis/badge.png?branch=coveralls)](https://coveralls.io/r/nickschuch/PrivateTravis?branch=coveralls)
+[![Build Status](https://travis-ci.org/nickschuch/PrivateTravis.svg?branch=master)](https://travis-ci.org/nickschuch/PrivateTravis) [![Coverage Status](https://coveralls.io/repos/nickschuch/PrivateTravis/badge.png?branch=master)](https://coveralls.io/r/nickschuch/PrivateTravis?branch=master)
 
 ### Overview
 
