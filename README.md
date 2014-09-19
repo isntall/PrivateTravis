@@ -9,7 +9,7 @@ PrivateTravis
 
 ### Overview
 
-Runs a private version of the Travis YAML file format on Docker conatainers. Giving you a Private Travis-like setup.
+Runs a private version of the Travis YAML file format on Docker containers. Giving you a Private Travis-like setup.
 
 ![Diagram](./docs/diagram.png "docs/diagram.png")
 
