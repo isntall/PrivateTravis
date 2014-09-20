@@ -15,7 +15,7 @@
     }
   ],
   "git-version": "package_version",
-  "main": "bin/compiler",
-  "output": "bin/compiler.phar",
+  "main": "bin/PrivateTravis",
+  "output": "bin/PrivateTravis.phar",
   "stub": true
 }

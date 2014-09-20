@@ -32,7 +32,7 @@ We use composer to pull down the applications dependencies. Run the following
 command to get setup:
 
 ```
-cd compiler && composer install --prefer-dist
+cd PrivateTravis && composer install --prefer-dist
 ```
 
 ### Usage
@@ -45,13 +45,13 @@ file into the many permutations.
 The very basic command with standard containers.
 
 ```
-compiler build
+PrivateTravis build
 ```
 
 **Build and run**
 
 ```
-compiler build > run && sh run
+PrivateTravis build > run && sh run
 ```
 
 Note: You will have a build file of "run.sh" leftover after this run, which means that you can either rerun the file or use it for debugging.
@@ -62,7 +62,7 @@ To override the provider of the containers. A good example of this would be if
 you had your own custom containers for testing and/or personal testing.
 
 ```
-compiler build --namespace="privatetravis"
+PrivateTravis build --namespace="privatetravis"
 ```
 
 **Commands**:
@@ -71,7 +71,7 @@ This will allow you to define your own custom command groups that will get
 loaded from the YAML file.
 
 ```
-compiler build env before_script script
+PrivateTravis build env before_script script
 ```
 
 **YAML**:
@@ -79,7 +79,7 @@ compiler build env before_script script
 This allows for a different file to be loaded from the project.
 
 ```
-compiler build --file=".othername.yml"
+PrivateTravis build --file=".othername.yml"
 ```
 
 ### Testing

@@ -1,6 +1,6 @@
 <?php
 
-namespace Compiler;
+namespace PrivateTravis;
 
 class DockerInspectCommand extends DockerBaseCommand {
 

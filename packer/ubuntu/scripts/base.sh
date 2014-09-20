@@ -16,7 +16,4 @@ mv composer.phar /usr/local/bin/composer && chmod +x /usr/local/bin/composer
 pear channel-discover pear.phing.info
 pear install phing/phing-2.6.1
 
-# This project.
-git clone https://github.com/nickschuch/PrivateTravis.git /root/PrivateTravis
-
 apt-get clean

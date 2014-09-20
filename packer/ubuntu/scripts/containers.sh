@@ -5,6 +5,7 @@
 # Description: Pull down the containers required for a build via the make command.
 
 # Go to the container subproject.
-cd /root/PrivateTravis/containers
+git clone https://github.com/nickschuch/PrivateTravisContainers.git /root/PrivateTravis /root/PrivateTravisContainers
+cd /root/PrivateTravisContainers
 
 make pull

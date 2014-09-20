@@ -1,9 +1,9 @@
 <!--
   name: build.xml
-  description: A build file for the Compiler project.g
+  description: A build file for the PrivateTravis project.
 -->
 
-<project name="compiler" default="build" phingVersion="2.4.11">
+<project name="PrivateTravis" default="build" phingVersion="2.4.11">
 
   <!-- Properties. -->
 

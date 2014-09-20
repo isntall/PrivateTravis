@@ -2,15 +2,15 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-use Compiler\CompilerCommand;
+use PrivateTravis\PrivateTravisCommand;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 
-class CompilerCommandTest extends \PHPUnit_Framework_TestCase {
+class PrivateTravisCommandTest extends \PHPUnit_Framework_TestCase {
 
   public function testExecute() {
     $application = new Application();
-    $application->add(new CompilerCommand());
+    $application->add(new PrivateTravisCommand());
 
     $command = $application->find('build');
     $commandTester = new CommandTester($command);
