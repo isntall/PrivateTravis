@@ -24,7 +24,7 @@ build "script" instructions. It's up to us to:
 The following digram demonstrates the how a travis file is converted into
 permutations.
 
-![Diagram](./docs/diagram.png "docs/permutations.png")
+![Diagram](./docs/permutations.png "docs/permutations.png")
 
 ### Installation
 
