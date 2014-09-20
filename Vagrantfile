@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
   # This is a good way to test them out.
   config.vm.provision :shell, :path => "packer/ubuntu/scripts/base.sh"
   config.vm.provision :shell, :path => "packer/ubuntu/scripts/sshd.sh"
-  config.vm.provision :shell, :path => "packer/ubuntu/scripts/compiler.sh"
+  config.vm.provision :shell, :path => "packer/ubuntu/scripts/command.sh"
   config.vm.provision :shell, :path => "packer/ubuntu/scripts/docker.sh"
   config.vm.provision :shell, :path => "packer/ubuntu/scripts/containers.sh"
 

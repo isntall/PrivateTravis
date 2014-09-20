@@ -9,7 +9,6 @@ install:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 script:
-  - cd compiler
   - phing
 
 after_script:

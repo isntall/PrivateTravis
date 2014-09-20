@@ -1,0 +1,33 @@
+{
+  "name": "nickschuch/PrivateTravis",
+  "type": "console",
+  "description": "Runs a private version of the Travis YAML file format on Docker conatainers. Giving you a Private Travis-like setup.",
+  "homepage": "https://github.com/nickschuch/PrivateTravis",
+  "support": {
+    "issues": "https://github.com/nickschuch/PrivateTravis",
+    "source": "https://github.com/nickschuch/PrivateTravis"
+  },
+  "keywords": [
+    "travis",
+    "ci",
+    "symfony"
+  ],
+  "license": "GPL-2.0+",
+  "require": {
+    "symfony/console": "v2.5.3",
+    "symfony/yaml": "v2.5.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.4.*@dev",
+    "herrera-io/phar-update": "~1.0",
+    "kherge/box": "~2.4",
+    "satooshi/php-coveralls": "v0.6.1"
+  },
+  "minimum-stability": "dev",
+  "config": {
+    "bin-dir": "bin/"
+  },
+  "autoload": {
+    "psr-4" : { "PrivateTravis\\": "src/" }
+  }
+}

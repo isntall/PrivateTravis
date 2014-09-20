@@ -3,3 +3,7 @@
 packer_cache
 boxes
 output-virtualbox-iso
+vendor
+bin
+coverage
+build
