@@ -12,14 +12,31 @@ use PrivateTravis\Permutation;
 
 class PrivateTravisCommand extends Command {
 
+  protected $name = "build";
+
+  /**
+   * Constructor.
+   *
+   * @param string|null $name The name of the command; passing null means it must be set in configure()
+   *
+   * @throws \LogicException When the command name is empty
+   *
+   * @api
+   */
+  public function __construct($name = null) {
+    parent::__construct($name);
+    $this->name = $name;
+  }
+
   protected function configure() {
-    $this->setName('build')
-         ->setDescription('Build the Docker command to run the .travis.yml file.')
-         ->addArgument('commands', InputArgument::IS_ARRAY, 'The TravisCI commands that will be run.', array('env', 'before_script', 'script'))
-         ->addOption('file', null, InputOption::VALUE_REQUIRED, 'The file to load.', '.travis.yml')
-         ->addOption('namespace', null, InputOption::VALUE_REQUIRED, 'Docker namespace to pull containers.', 'privatetravis')
-         ->addOption('fail-fast', null, InputOption::VALUE_NONE, 'Fail the build fast if any errors.')
-         ->addOption('privileged', null, InputOption::VALUE_NONE, 'Run the containers in "privileged" mode. Giving them access to high kernel functionality eg. TMPFS.');
+    $command = $this->getName();
+    $this->setName($command)
+      ->setDescription('Build the Docker command to run the .travis.yml file.')
+      ->addArgument('commands', InputArgument::IS_ARRAY, 'The TravisCI commands that will be run.', array('env', 'before_script', 'script'))
+      ->addOption('file', null, InputOption::VALUE_REQUIRED, 'The file to load.', '.travis.yml')
+      ->addOption('namespace', null, InputOption::VALUE_REQUIRED, 'Docker namespace to pull containers.', 'privatetravis')
+      ->addOption('fail-fast', null, InputOption::VALUE_NONE, 'Fail the build fast if any errors.')
+      ->addOption('privileged', null, InputOption::VALUE_NONE, 'Run the containers in "privileged" mode. Giving them access to high kernel functionality eg. TMPFS.');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {
