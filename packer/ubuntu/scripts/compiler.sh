@@ -5,7 +5,7 @@
 # Description: Install the compiler to the host.
 
 # Go to the compiler subproject.
-cd /root/PrivateTravis/compiler
+cd /root/PrivateTravis
 
 # We need to do this so we can build the .phar for the compiler.
 echo "phar.readonly = Off" >> /etc/php5/cli/php.ini
