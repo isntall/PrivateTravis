@@ -1,5 +1,5 @@
 {
-  "name": "nickschuch/PrivateTravis",
+  "name": "nickschuch/privatetravis",
   "type": "console",
   "description": "Runs a private version of the Travis YAML file format on Docker conatainers. Giving you a Private Travis-like setup.",
   "homepage": "https://github.com/nickschuch/PrivateTravis",
