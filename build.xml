@@ -37,7 +37,7 @@
 
   <target name="phpunit:coverage"
           description="Run phpunit tests with coverage.">
-    <exec command="${phpunit.bin} --coverage-html ${build.logs.dir} --coverage-clover ${build.logs.dir}/clover.xml" logoutput="true" />
+    <exec command="${phpunit.bin} --stderr --coverage-html ${build.logs.dir} --coverage-clover ${build.logs.dir}/clover.xml" logoutput="true" checkreturn="true" />
   </target>
 
   <target name="box:build"
