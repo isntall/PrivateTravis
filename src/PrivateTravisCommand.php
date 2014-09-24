@@ -12,7 +12,7 @@ use PrivateTravis\Permutation;
 
 class PrivateTravisCommand extends Command {
 
-  protected $name = "build";
+  protected $name = "";
 
   /**
    * Constructor.
