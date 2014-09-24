@@ -10,7 +10,7 @@ class PrivateTravisCommandTest extends \PHPUnit_Framework_TestCase {
 
   public function testExecute() {
     $application = new Application();
-    $application->add(new PrivateTravisCommand());
+    $application->add(new PrivateTravisCommand("build"));
 
     $command = $application->find('build');
     $commandTester = new CommandTester($command);
