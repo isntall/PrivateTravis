@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Process\Process;
 use Symfony\Component\Yaml\Yaml;
 use PrivateTravis\Permutation;
 
@@ -36,7 +37,8 @@ class PrivateTravisCommand extends Command {
       ->addOption('file', null, InputOption::VALUE_REQUIRED, 'The file to load.', '.travis.yml')
       ->addOption('namespace', null, InputOption::VALUE_REQUIRED, 'Docker namespace to pull containers.', 'privatetravis')
       ->addOption('fail-fast', null, InputOption::VALUE_NONE, 'Fail the build fast if any errors.')
-      ->addOption('privileged', null, InputOption::VALUE_NONE, 'Run the containers in "privileged" mode. Giving them access to high kernel functionality eg. TMPFS.');
+      ->addOption('privileged', null, InputOption::VALUE_NONE, 'Run the containers in "privileged" mode. Giving them access to high kernel functionality eg. TMPFS.')
+      ->addOption('timeout', null, InputOption::VALUE_REQUIRED, 'The number is seconds before killing the process.', '3600');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {
@@ -58,7 +60,7 @@ class PrivateTravisCommand extends Command {
       $output->writeln("set -e");
     }
 
-    // Get the permutations.
+    // Get the permutations and build the process to be run.
     foreach ($language_versions as $language_version) {
       $output->writeln("#### Permutation $language$language_version ####");
 
@@ -71,10 +73,18 @@ class PrivateTravisCommand extends Command {
       }
       $permutation->addServices($services);
 
-      // Print.
+
       $lines = $permutation->build();
       foreach ($lines as $line) {
-        $output->writeln($line);
+        $process = new Process($line);
+        $process->setTimeout(3600);
+        $process->run(function ($type, $buffer) {
+          if (Process::ERR === $type) {
+            echo $buffer;
+          } else {
+            echo $buffer;
+          }
+        });
       }
     }
   }
